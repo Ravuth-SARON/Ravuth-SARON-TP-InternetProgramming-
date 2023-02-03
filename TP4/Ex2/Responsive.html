@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/dist/output.css" rel="stylesheet" /> 
+    <style>
+      button{
+        border: 2px solid rgb(209, 209, 29);
+        border-radius:5px ;
+        box-shadow: 1px 1px rgb(237, 237, 89);
+
+        width: 90px;
+        display: inline-block;
+        margin: 0px 0px 10px 10px;
+      }
+      @media(max-width: 647px) {
+       .menu1{
+        display: block;
+       }
+       #photo{
+        margin-left: 50px;
+        width:400px;
+        height: 250px;
+       }
+       .text{
+        margin-left:30px;
+       }
+       #description{
+        margin-top: 8px;
+       }
+       #line{
+        margin-top: 4px;
+       }
+     }
+    </style>
+  </head> 
+  <body >
+    <div class="container flex items-center justify-center border-4 border-black  ">
+      <div class="app">
+       <div class="header flex justify-center items-center"></div>
+       <div class="flex flex-col  justify-center items-center mb-5">
+        <h class=" font-bold text-[30px]">Our Menu</h>
+        <hr  style="width:80px;height:2px;border-width:0;color:rgb(239, 205, 15);background-color:rgb(209, 180, 34)"></hr>
+       
+      </div>
+       <div class="option flex justify-center gap-1 mb-[50px] ">
+        <button class="hover:bg-yellow-200">All</button>
+        <button class="hover:bg-yellow-200">Breakfast</button>
+        <button class="hover:bg-yellow-200">Lunch</button>
+        <button class="hover:bg-yellow-200">Shake</button>
+        <button class="hover:bg-yellow-200">Dinner</button>
+       </div>
+       <div class="menu grid grid-cols-1 gap-4">
+        <div class="menu1 sm:flex ">
+          <img src="pancake.jpg" id="photo" class="w-[165px] h-[150px] rounded-md border-4 border-yellow-400" alt="" >
+          <div id="description" class="ml-5 w-[470px] h-[150px]">
+            <div class="name flex ">
+              <h1 class="grow tracking-widest font-semibold">Double Dinner</h1>
+              <p class="text"><b>15.99$</b></p>
+             
+            </div>
+            <hr  id="line" class="h-[1px]  border-0 color:gray mt-4 bg-slate-500"></hr>
+            <p class="text">pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese,</p>
+          </div>
+        </div>
+
+        <div class="menu1 sm:flex ">
+          <img src="milkshake.jpg" id="photo" class="w-[165px] h-[150px] rounded-md border-4 border-yellow-400" alt="" >
+          <div id="description" class="ml-5 w-[470px] h-[150px]">
+            <div class="name flex ">
+              <h1 class="grow tracking-widest font-semibold">Double Dinner</h1>
+              <p class=""><b>13.99$</b></p>
+             
+            </div>
+            <hr id="line" class="h-[1px]  border-0 color:gray mt-4 bg-slate-500"></hr>
+            <p class="">pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese,</p>
+          </div>
+        </div>
+        <div class="menu1 sm:flex ">
+          <img src="doubledinner.jpg" id="photo" class="w-[165px] h-[150px] rounded-md border-4 border-yellow-400" alt="" >
+          <div id="description" class="ml-5 w-[470px] h-[150px]">
+            <div class="name flex ">
+              <h1 class="grow tracking-widest font-semibold">Double Dinner</h1>
+              <p class=""><b>6.99$</b></p>
+             
+            </div>
+            <hr  id="line" class="h-[1px]  border-0 color:gray mt-4 bg-slate-500"></hr>
+            <p class="">pizza, dish of Italian origin consisting of a flattened disk of bread dough topped with some combination of olive oil, oregano, tomato, olives, mozzarella or other cheese,</p>
+          </div>
+        </div>
+       </div>
+       </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #navBar {
+        gap: 16px;
+      }
+      @media (max-width: 700px) {
+        #navBar,
+        #social-logo {
+          display: none;
+        }
+        #menu-nav-bar {
+          display: inline;
+        }
+        #text {
+          display: inline;
+        }
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex justify-center w-[1200px]" id="full">
+      <div class="bg-gray-200 flex justify-center items-center">
+        <div
+          class="flex justify-between bg-white border-2 rounded-sm h-[100px] w-[1000px]"
+          id="container"
+        >
+          <div class="inline-block">
+            <p class="font-bold text-[30px] mt-2 font-mono" id="text">
+              Nav Bar
+            </p>
+            <div class="hidden" id="navBarRespon">
+              <button>Home</button>
+              <button>About</button>
+              <button>Project</button>
+              <button>Contact</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-4 gap-3" id="navBar">
+            <button>Home</button>
+            <button>About</button>
+            <button>Project</button>
+            <button>Contact</button>
+          </div>
+          <div class="grid grid-cols-4 gap-3" id="social-logo">
+            <ion-icon
+              name="logo-facebook"
+              class="w-[20px] h-10 text-blue-500"
+            ></ion-icon>
+
+            <ion-icon
+              name="logo-twitter"
+              class="w-[20px] h-10 text-blue-500"
+            ></ion-icon>
+            <ion-icon
+              name="logo-linkedin"
+              class="w-[20px] h-10 text-blue-500"
+            ></ion-icon>
+            <ion-icon
+              name="logo-instagram"
+              class="w-[20px] h-10 text-blue-500"
+            ></ion-icon>
+          </div>
+
+          <button class="hidden" id="menu-nav-bar">
+            <ion-icon
+              name="menu-outline"
+              id="menu-icon"
+              class="w-[30px] h-[30px]"
+            ></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let count = 0;
+
+      if (document.getElementById("full").style.width <= 700) {
+        document
+          .getElementById("menu-nav-bar")
+          .addEventListener("click", () => {
+            count = count + 1;
+            document.getElementById("navBar").style.display = "none";
+            if (count % 2 === 0) {
+              document.getElementById("navBarRespon").style.display = "none";
+              document.getElementById("menu-icon").style.transform =
+                "rotate(-180deg)";
+            } else if (count % 2 != 0) {
+              document.getElementById("navBarRespon").style.display = "grid";
+              document.getElementById("navBarRespon").style.gap = "16px";
+              document.getElementById("navBar").style.gridTemplateColumns =
+                "1fr";
+              document.getElementById("menu-icon").style.transform =
+                "rotate(-90deg)";
+              document.getElementById("container").style.height = "300px";
+            }
+          });
+      } else if (document.getElementById("full").style.width > 700) {
+        document.getElementById("navBarRespon").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
