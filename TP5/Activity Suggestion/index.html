@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Shantell+Sans:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      .emoji {
+        display: flex;
+        justify-content: center;
+        font-size: 100px;
+      }
+      .header {
+        font-size: 50px;
+        display: flex;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+      }
+      .button {
+        color: white;
+        display: grid;
+        justify-content: center;
+        font-size: 20px;
+        width: 300px;
+        height: 40px;
+        padding: 30px;
+        border-radius: 10px;
+        margin-left: 60px;
+        background-color: rgb(95, 95, 185);
+      }
+      .all {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1500px;
+        border: 10px black solid;
+        height: fit-content;
+      }
+      #information {
+        display: none;
+        font-size: 24px;
+        border: 20px;
+        width: 400px;
+
+        margin-top: 30px;
+        border-radius: 10px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="all">
+      <div class="container">
+        <h1 class="emoji">🥱</h1>
+        <h2 class="header">Are You boring</h2>
+
+        <button class="button" onclick="WhatDoYouWant()">
+          Tell me what to do
+        </button>
+
+        <div id="information"></div>
+      </div>
+    </div>
+
+    <script>
+      const activity = document.createElement("h");
+      activity.style.display = "flex";
+      activity.style.justifyContent = "center";
+      activity.style.fontWeight = "900";
+      //for description
+      const decOfActivity = document.createElement("div");
+      decOfActivity.style.display = "grid";
+      decOfActivity.style.margin = "30px";
+
+      const typeEl = document.createElement("div");
+      typeEl.style.display = "flex";
+      const participantEl = document.createElement("div");
+
+      const priceEl = document.createElement("div");
+      const linkEl = document.createElement("a");
+
+      function WhatDoYouWant() {
+        let infoEl = document.getElementById("information");
+        infoEl.style.display = "flex";
+        infoEl.style.justifyContent = "center";
+        document.getElementById("information").style.display = "flex";
+        document.getElementById("information").style.flexDirection = "column";
+        // document.getElementById("information").style.justifyContent = "center";
+        fetch("https://www.boredapi.com/api/activity")
+          .then(async (res) => {
+            const data = await res.json();
+
+            //for topic
+            let topic = data["activity"]; //dak jeng tv vea ot jorn knea pel joch button again
+            activity.innerText = topic;
+            activity.style.marginTop = "20px";
+            //for type;
+            typeEl.innerText = `.Type:${data["activity"]}`;
+            //for participant
+            participantEl.innerText = `.participant: ${data["participants"]}`;
+            //for price;
+            priceEl.innerText = `.prices: ${data["price"]}`;
+            //for Link
+            linkEl.innerText = `.Link: ${data["link"]}`;
+            //Get all the information here
+            infoEl.appendChild(activity);
+            decOfActivity.appendChild(typeEl);
+            decOfActivity.appendChild(participantEl);
+            decOfActivity.appendChild(priceEl);
+            decOfActivity.appendChild(linkEl);
+            infoEl.appendChild(decOfActivity);
+
+            console.log(data.activity);
+          })
+          .catch((error) => {
+            console.log("hark mic jeng");
+          })
+          .finally(() => {
+            console.log("");
+          });
+      }
+
+      function hi(value, icon) {}
+    </script>
+  </body>
+</html>
